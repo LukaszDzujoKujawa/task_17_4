@@ -15,6 +15,10 @@ app.get('/userform', function(req, res){
 	res.end(JSON.stringify(response));
 })
 
+app.use(function (req, res, next) {
+	res.status(404).send('Wybacz, nie mogliśmy odnaleźć tego, czego żądasz!');
+});
+
 const server = app.listen(3000, 'localhost', function() {
     const host = server.address().address;
     const port = server.address().port;
